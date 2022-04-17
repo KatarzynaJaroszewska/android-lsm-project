@@ -7,4 +7,6 @@
     <string name="child_1_name">Aneta</string>
     <string name="child_2_name">Bartek</string>
     <string name="child_3_name">Tomek</string>
+    <string name="add_child_button">ADD CHILD</string>
+    <string name="points_template">+5</string>
 </resources>
