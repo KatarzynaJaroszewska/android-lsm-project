@@ -10,4 +10,5 @@
     <dimen name="points_min_width">50dp</dimen>
     <dimen name="button_bottom_margin">70dp</dimen>
     <dimen name="huge_padding">20dp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
 </resources>
