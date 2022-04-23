@@ -11,10 +11,10 @@
         android:id="@+id/text_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/medium_padding"
         android:padding="@dimen/small_padding"
         android:text="@string/my_application"
-        android:textSize="40sp"
+        android:textSize="@dimen/title_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -22,7 +22,7 @@
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="5dp"
+        android:padding="@dimen/small_padding"
         app:columnCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/child_1_name"
-                    android:textSize="30dp"
+                    android:textSize="@dimen/name_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -86,18 +86,18 @@
                         android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
-                        android:drawableStart="@drawable/ic_heart_24"
-                        android:text="@string/points_template" />
+                        android:text="@string/points_template"
+                        app:drawableStartCompat="@drawable/ic_heart_24" />
 
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
                         android:drawableStart="@drawable/ic_task_completed"
                         android:text="@string/points_template" />
@@ -155,8 +155,8 @@
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
                         android:drawableStart="@drawable/ic_heart_24"
                         android:text="@string/points_template" />
@@ -165,8 +165,8 @@
                         android:id="@+id/textView8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
                         android:drawableStart="@drawable/ic_task_completed"
                         android:text="@string/points_template" />
@@ -177,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/child_2_name"
-                    android:textSize="30dp"
+                    android:textSize="@dimen/name_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -232,8 +232,8 @@
                         android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
                         android:drawableStart="@drawable/ic_heart_24"
                         android:text="@string/points_template" />
@@ -242,8 +242,8 @@
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:minWidth="50dp"
+                        android:layout_margin="@dimen/small_padding"
+                        android:minWidth="@dimen/points_min_width"
                         android:drawablePadding="@dimen/small_padding"
                         android:drawableStart="@drawable/ic_task_completed"
                         android:text="@string/points_template" />
@@ -254,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/child_3_name"
-                    android:textSize="30dp"
+                    android:textSize="@dimen/name_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -267,8 +267,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_child_button"
-        android:layout_marginBottom="70dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="@dimen/button_bottom_margin"
+        android:layout_marginEnd="@dimen/huge_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
