@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
+import com.example.myapplication.ui.BaseFragment
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<HomeViewModel>(HomeViewModel::class.java) {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -22,9 +23,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -33,6 +31,11 @@ class HomeFragment : Fragment() {
 //            textView.text = it
 //        }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = this.viewModel
     }
 
     override fun onDestroyView() {

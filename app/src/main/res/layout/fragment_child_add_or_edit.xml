@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.home.ChildAddOrEditViewModel" />
+
+        <variable
+            name="dateFormatter"
+            type="java.text.SimpleDateFormat" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@drawable/background"
+        tools:context=".ui.home.ChildAddOrEditFragment">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/huge_padding"
+            app:layout_constraintBottom_toTopOf="@+id/textFieldChildName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/behaviourRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/huge_margin"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/baseline_radio_button_checked_grey_800_24dp"
+                android:text="@string/behaviour_radio_button_label"
+                app:drawableEndCompat="@drawable/ic_heart_24" />
+
+            <RadioButton
+                android:id="@+id/dutiesRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/huge_margin"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/baseline_radio_button_checked_purple_900_24dp"
+                android:text="@string/duties_radio_button_label"
+                app:drawableEndCompat="@drawable/baseline_check_circle_outline_purple_500_24dp" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldChildName"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/child_s_name_hint"
+            android:padding="@dimen/small_padding"
+            android:textColorHint="@color/design_default_color_primary"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:startIconDrawable="@drawable/baseline_person_black_24dp"
+            app:startIconTint="@color/design_default_color_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.childName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldRepeat"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/repeat_hint"
+            android:padding="@dimen/small_padding"
+            android:textColorHint="@color/design_default_color_primary"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldChildName"
+            app:startIconDrawable="@drawable/baseline_calendar_month_black_24dp"
+            app:startIconTint="@color/design_default_color_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="@{dateFormatter.format(viewModel.birthdayDate)}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textViewLabelAssignedTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/huge_margin"
+            android:text="@string/assigned_to_header"
+            android:textSize="@dimen/header_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldRepeat" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutAvatarList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:columnCount="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLabelAssignedTo">
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <Button
+            android:id="@+id/add_or_edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/huge_margin"
+            android:layout_marginBottom="@dimen/button_bottom_margin"
+            android:drawableLeft="@drawable/baseline_add_white_24dp"
+            android:text="@{viewModel.buttonName}"
+            app:layout_constraintBottom_toBottomOf="@+id/gridLayoutAvatarList"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
