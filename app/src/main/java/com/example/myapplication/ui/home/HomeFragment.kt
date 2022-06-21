@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.ui.BaseFragment
+import com.example.myapplication.utils.ResourceUtils
 
 class HomeFragment : BaseFragment<HomeViewModel>(HomeViewModel::class.java) {
 
@@ -36,6 +37,8 @@ class HomeFragment : BaseFragment<HomeViewModel>(HomeViewModel::class.java) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = this.viewModel
+        binding.resourceUtils = ResourceUtils
+        binding.lifecycleOwner = this
     }
 
     override fun onDestroyView() {
