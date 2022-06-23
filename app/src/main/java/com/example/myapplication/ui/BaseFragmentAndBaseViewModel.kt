@@ -96,3 +96,11 @@ class SingleLiveEvent<T> : MutableLiveData<T> () {
         private val TAG = "ccom.example.myapplication.ui.SingleLiveEvent"
     }
 }
+
+fun <T> MutableLiveData<T>.notifyPostObserver() {
+    postValue(this.value)
+}
+
+fun <T> MutableLiveData<T>.notifyObserver() {
+    this.value = this.value
+}

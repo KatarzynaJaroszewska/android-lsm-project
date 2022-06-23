@@ -14,4 +14,5 @@
     <string name="assigned_to_header">Assigned to:</string>
     <string name="behaviour_radio_button_label">Behaviour</string>
     <string name="duties_radio_button_label">Duties</string>
+    <string name="select_date">Select date</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.myapplication.ui.home.ChildAddOrEditViewModel" />
@@ -74,7 +75,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.childName}" />
+                android:text="@={viewModel.child.name}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +100,8 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:text="@{dateFormatter.format(viewModel.birthdayDate)}" />
+                android:onClick="@{() -> viewModel.showDatePicker()}"
+                android:text="@{dateFormatter.format(viewModel.child.birthday)}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,6 +136,7 @@
             android:layout_marginEnd="@dimen/huge_margin"
             android:layout_marginBottom="@dimen/button_bottom_margin"
             android:drawableLeft="@drawable/baseline_add_white_24dp"
+            android:onClick="@{() -> viewModel.saveAddChildOrEdit()}"
             android:text="@{viewModel.buttonName}"
             app:layout_constraintBottom_toBottomOf="@+id/gridLayoutAvatarList"
             app:layout_constraintEnd_toEndOf="parent" />
