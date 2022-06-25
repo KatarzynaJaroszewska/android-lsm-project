@@ -10,7 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.ui.BaseFragment
 import com.example.myapplication.utils.ResourceUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeViewModel>(HomeViewModel::class.java) {
 
     private var _binding: FragmentHomeBinding? = null

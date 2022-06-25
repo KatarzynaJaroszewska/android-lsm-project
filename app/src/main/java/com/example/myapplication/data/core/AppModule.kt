@@ -23,7 +23,7 @@ class AppModule {
             "child_reward_database"
         )
             .fallbackToDestructiveMigration()
-            .allowMainThreadQueries() //TODO: remove ASAP
+//            .allowMainThreadQueries() //TODO: remove ASAP
             .build()
     }
 

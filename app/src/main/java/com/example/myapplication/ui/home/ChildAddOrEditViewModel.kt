@@ -10,6 +10,7 @@ import com.example.myapplication.data.ChildRepository
 import com.example.myapplication.ui.BaseViewModel
 import com.example.myapplication.ui.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
@@ -29,8 +30,7 @@ class ChildAddOrEditViewModel @Inject constructor(private val childRepository: C
     }
 
     fun saveAddChildOrEdit() {
-//        Log.i("saveAddChildOrEdit", child.value.toString())
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val childToAdd = child.value
             if (childToAdd != null)
                 childRepository.insert(childToAdd)

@@ -3,12 +3,18 @@ package com.example.myapplication.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.Child
+import com.example.myapplication.data.ChildRepository
 import com.example.myapplication.ui.BaseViewModel
 import com.example.myapplication.ui.NavigationCommand
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
-class HomeViewModel : BaseViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val childRepository: ChildRepository) : BaseViewModel() {
 
     private val _childList = MutableLiveData<List<Child>>()
     val childList : LiveData<List<Child>> = _childList
@@ -18,13 +24,11 @@ class HomeViewModel : BaseViewModel() {
     }
 
     private fun fetchChildList() {
-        var newList = listOf(
-            Child(name = "Andrzej", dutyPoints = 10, behaviorPoints = 15, drawableName = "child_1_icon", birthday = Calendar.getInstance().time),
-            Child(name = "Monika", dutyPoints = 15, behaviorPoints = 5, drawableName = "child_2_icon", birthday = Calendar.getInstance().time),
-            Child(name = "Marcin", dutyPoints = 33, behaviorPoints = 70, drawableName = "child_3_icon", birthday = Calendar.getInstance().time)
-        )
-
-        _childList.value = newList
+        viewModelScope.launch {
+            childRepository.getChildren().collect{
+                _childList.postValue(it)
+            }
+        }
     }
 
     private val _buttonName = MutableLiveData<String>().apply {
