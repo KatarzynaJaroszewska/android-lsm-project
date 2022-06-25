@@ -13,9 +13,11 @@ import com.example.myapplication.ui.BaseFragment
 import com.example.myapplication.ui.notifyObserver
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.imageview.ShapeableImageView
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class ChildAddOrEditFragment : BaseFragment<ChildAddOrEditViewModel>(ChildAddOrEditViewModel::class.java) {
 
     private var _binding: FragmentChildAddOrEditBinding? = null
